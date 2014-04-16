@@ -26,5 +26,4 @@
             (swap! queue update-in [:call-history] conj result)
             result))
       (do (swap! queue assoc-in [:transformation-queue] [])
-          (swap! queue assoc-in [:call-history] [])
           target))))
