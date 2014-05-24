@@ -1,14 +1,25 @@
 (ns advance.core)
 
+(defn queue
+  []
+  (ref {:call-history         []
+        :transformation-queue []}
+       :meta {:is-queue true}))
+
 (defmacro defqueue
   [queue-name]
-  `(def ~queue-name (ref {:call-history         []
-                          :transformation-queue []}
-                         :meta {:is-queue true})))
+  `(def ~queue-name (~queue)))
 
 (defn queue?
   [thing]
   (= (:is-queue (meta thing)) true))
+
+(defn exhausted?
+  [queue]
+  (-> queue
+      deref
+      :transformation-queue
+      empty?))
 
 (defn enqueue!
   [queue function]
