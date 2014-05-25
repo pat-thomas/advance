@@ -24,6 +24,12 @@ Clojure library for functional queues.
                                                ;; the queue is "exhausted", so the target passed in is just returned.
 ```				
 
+## Installation
+[Leiningen](https://github.com/technomancy/leiningen) dependency information:
+```clj
+[advance "0.1.0-SNAPSHOT"]
+```
+
 ## License
 
 Copyright © 2014 Pat Thomas
